@@ -1,0 +1,66 @@
+<module>
+    <manifestVersion>1.0.0</manifestVersion>
+    <symbolicName>s2tbx-rapideye-reader</symbolicName>
+    <version>1.0.0</version>
+    <name>RapidEye Product Reader</name>
+
+    <description>Enables SNAP to read RapidEye products in NITF or GeoTIFF format</description>
+
+    <vendor>CS</vendor>
+    <contactAddress>ZAC de la Grande Plaine,5 Rue Brindejonc des Moulinais, Toulouse Cedex 5, France </contactAddress>
+    <copyright>(c) Copyright 2014 by CS and contributors.&lt;br/&gt;All rights reserved.</copyright>
+    <url>https://earth.esa.int/web/sentinel-tbx/home</url>
+    <licenseUrl>http://www.gnu.org/licenses/gpl.html</licenseUrl>
+
+    <packaging>dir</packaging>
+
+    <dependency>
+        <module>snap-core</module>
+    </dependency>
+    <dependency>
+        <module>snap-geotiff</module>
+    </dependency>
+    <dependency>
+        <module>s2tbx-commons</module>
+    </dependency>
+    <dependency>
+        <module>snap-visat-rcp</module>
+        <optional>true</optional>
+    </dependency>
+
+    <categories>Reader, RapidEye</categories>
+
+    <extension point="snap-ui:actions">
+        <action>
+            <id>importRapidEyeL1Product</id>
+            <class>org.esa.beam.visat.actions.ProductImportAction</class>
+            <formatName>RapidEyeNITF</formatName>
+            <useAllFileFilter>false</useAllFileFilter>
+            <shortDesc>Import a RapidEye L1 product</shortDesc>
+            <helpId>myRapidEyeL1Product</helpId>
+            <parent>importMultispectral</parent>
+        </action>
+    </extension>
+
+    <extension point="snap-ui:actions">
+        <action>
+            <id>importRapidEyeL3Product</id>
+            <class>org.esa.beam.visat.actions.ProductImportAction</class>
+            <formatName>RapidEyeGeoTIFF</formatName>
+            <useAllFileFilter>false</useAllFileFilter>
+            <shortDesc>Import a RapidEye L3 product</shortDesc>
+            <helpId>myRapidEyeL3Product</helpId>
+            <parent>importMultispectral</parent>
+        </action>
+    </extension>
+
+    <extension point="snap-core:rgbProfiles">
+        <rgbProfile>
+            <name>RapidEye</name>
+            <red>red</red>
+            <green>green</green>
+            <blue>blue</blue>
+        </rgbProfile>
+    </extension>
+
+</module>
